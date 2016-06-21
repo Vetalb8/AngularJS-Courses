@@ -1,7 +1,7 @@
 # AngularCourses
 
 Создать SPA  *Courses* используя AngularJS фреймворк.
-Необходимые инструменты: AngularJs, Bootstrap, AngularUI-Bootstrap
+Необходимые инструменты: AngularJs, Bootstrap, AngularUI-Bootstrap.
 Весь бэкенд строится на эмулировании выполнения запросов и ответов внутри angular, с помощью модуля ngMock сервис $httpBackend.
 
 ## Как посмотреть?
