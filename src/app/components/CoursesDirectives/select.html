@@ -1,0 +1,15 @@
+<label for="inputAuthor" class="col-sm-2 control-label">List Author</label>
+<div class="col-sm-4">
+  <select multiple class="form-control" id="inputAuthor"
+          ng-options="e as e[displayAttr] for e in model" ng-model="selected.current">
+  </select>
+</div>
+<div class="col-sm-1 move-author">
+  <a class="btn btn-default" ng-click="add()">&#60;</a>
+  <a class="btn btn-default btn-return-author" ng-click="remove()">&#62;</a>
+</div>
+<div class="col-sm-4">
+  <select multiple class="form-control" ng-model="selected.available"
+          ng-options="e as e[displayAttr] for e in available">
+  </select>
+</div>

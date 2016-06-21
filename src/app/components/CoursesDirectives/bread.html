@@ -1,0 +1,8 @@
+﻿<div class="breadcrumbs">
+  <ul class="breadcrumb" ng-if="data.length > 0">
+    <li ng-repeat="course in data">
+      <a ng-if="course.url !== '#' + activeAddres" ui-sref="courses">{{ course.title }}</a>
+      <span class="activeBread label label-info" ng-if="course.url === '#' + activeAddres">{{ course.title }}</span>
+    </li>
+  </ul>
+</div>

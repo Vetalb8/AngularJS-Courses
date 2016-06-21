@@ -1,0 +1,65 @@
+﻿<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="form-horizontal"
+            name="courseForm" role="form" ng-submit="course.saveCourse(course.course)" novalidate>
+        <div class="form-group">
+          <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+          <div class="col-sm-10">
+            <input name="inputTitle" type="text" class="form-control inputTitle" ng-model="course.course.title"
+                   required id="inputTitle" placeholder="Text input" ng-pattern="course.titlePattern">
+            <div ng-messages="courseForm.inputTitle.$error" ng-show="courseForm.$submitted || courseForm.inputTitle.$touched">
+              <span class="error" ng-message="required">required field</span>
+              <span class="error" ng-message="pattern">The field can contain only latin letters and numbers</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputDescription" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <textarea name="inputDescription" class="form-control" required ng-minlength="15"
+                      ng-model="course.course.description" id="inputDescription" rows="3" placeholder="Text area"></textarea>
+            <div ng-messages="courseForm.inputDescription.$error" ng-show="courseForm.$submitted || courseForm.inputDescription.$touched">
+              <span class="error" ng-message="required">required field</span>
+              <span class="error" ng-message="minlength">description should not be less than 15 characters</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputDate" class="col-sm-2 control-label">Data</label>
+          <div class="col-sm-10" >
+            <input type="text" class="form-control inputDate"
+                   required
+                   name="inputDate"
+                   id="inputDate"
+                   placeholder="dd.mm.yyyy"
+                   ng-model="course.course.date"
+                   check="\d\d\.\d\d\.\d\d\d\d"
+                   validator="date">
+            <div ng-messages="courseForm.inputDate.$error" ng-show="courseForm.$submitted || courseForm.inputDate.$touched">
+              <span class="error" ng-message="required">required field</span>
+              <span class="error" ng-message="invalid">Invalid date</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputDuration" class="col-sm-2 control-label">Duration</label>
+          <div class="col-sm-10">
+            <input type="text" ng-model="course.course.duration" name="inputDuration" required
+                   duration="viewCourseTime" class="form-control inputDuration" id="inputDuration" placeholder="min">
+          </div>
+        </div>
+        <div class="form-group">
+          <multi-select ng-model="course.course.authors" available="course.authors"
+                        display-attr="name"></multi-select>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" ng-disabled="courseForm.$invalid">Save</button>
+            <button type="button" class="btn btn-danger" ng-click="course.returnToCourses()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

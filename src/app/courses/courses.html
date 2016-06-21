@@ -1,0 +1,44 @@
+﻿<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <form ng-submit="courses.searchCourse(courses.courseTitle)" novalidate>
+        <div class="form-group search-product">
+          <input class="form-control" type="text" placeholder="name of course" ng-model="courses.courseTitle" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <div class="col-xs-4">
+      <a ui-sref="course({id: 'new'})" href="" class="btn btn-success btn-add-course">Add course</a>
+    </div>
+  </div>
+</div>
+<!-- Course info -->
+<div class="container" ng-repeat="course in courses.courses | sortCourseTitle:{title:courses.searchCourseTitle}">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-xs-8 course-info">
+        <div class="course-info-top">
+          <h3 class="course-info__title">{{course.title}}</h3>
+          <span class="course-info__time">{{course.duration | viewCourseTime}}</span>
+          <span class="course-info__date">{{course.dataCreate | date:'dd.MM.yyyy'}}</span>
+        </div>
+        <div class="course-info__text">
+          {{course.description}}
+        </div>
+        <div class="course-info__authors">
+          <span class="authors_title">Authors:</span>
+          <span ng-repeat="authors in course.authors">{{authors.name}}</span>
+        </div>
+      </div>
+      <div class="col-xs-offset-2 col-xs-2 course-control">
+        <a ui-sref="course({id: course.courseid})" href="" class="btn btn-warning btn-edit-course">Edit</a>
+        <a href ng-click="deleteCourse('lg', course)" class="btn btn-danger btn-delete-course">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" ng-hide="courses.courses.length">
+  Добавьте пожалуйста курс!
+</div>
+

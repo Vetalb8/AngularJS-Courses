@@ -1,0 +1,29 @@
+{
+  "name": "angular-courses",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular-resource": "^1.5.1",
+    "angular-route": "^1.5.1",
+    "bootstrap": "^3.3.6",
+    "angular-bootstrap": "^1.2.5",
+    "angular": "^1.5.1",
+    "angular-local-storage": "^0.2.7",
+    "angular-ui-router": "~0.2.13",
+    "angular-mocks": "^1.5.1",
+    "angular-messages": "^1.5.3"
+  },
+  "devDependencies": {},
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    }
+  }
+}
